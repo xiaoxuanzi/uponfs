@@ -69,7 +69,7 @@ class FileLock(object):
                 if e.errno != errno.EEXIST:
                     raise
                 if (time.time() - start_time) >= self.timeout:
-                    raise FileLockException("Timeout occured.")
+                    raise FileLockException( "Timeout occured.", self.lockfile )
                 time.sleep(self.delay)
         self.is_locked = True
 
